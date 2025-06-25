@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>PG Game Studio Portfolio</title>
   <style>
     * {
@@ -21,6 +21,12 @@
       color: #000;
       line-height: 1.6;
       padding: 2rem;
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
+
+    body.loaded {
+      opacity: 1;
     }
 
     a {
@@ -55,6 +61,12 @@
       gap: 2rem;
       margin-bottom: 2rem;
       font-weight: bold;
+      position: sticky;
+      top: 0;
+      background: white;
+      padding: 0.5rem;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
     }
 
     nav a {
@@ -81,7 +93,7 @@
 
     .cards {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 1.5rem;
     }
 
@@ -95,7 +107,7 @@
     }
 
     .card:hover {
-      transform: scale(1.01);
+      transform: scale(1.02);
       box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
     }
 
@@ -103,6 +115,11 @@
       width: 100%;
       border-radius: 10px;
       margin-bottom: 0.75rem;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover img, .card:hover video {
+      transform: scale(1.03);
     }
 
     .card h3 {
@@ -151,10 +168,22 @@
       margin-top: 4rem;
       color: #999;
     }
+
+    /* Fade-in animation */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .fade-in.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
   </style>
 </head>
 <body>
-  <header>
+  <header class="fade-in">
     <img src="logo.png" alt="Studio Logo">
     <div>
       <h1>PG Game Studio</h1>
@@ -170,24 +199,24 @@
     <a href="#contact">Contact</a>
   </nav>
 
-  <section class="section" id="profile">
+  <section class="section fade-in" id="profile">
     <h2>About Us</h2>
     <div class="cards">
-      <div class="card">
+      <div class="card fade-in">
         <p>We are PG Game Studio, a team of passionate Roblox developers who specialize in horror game experiences. Our flagship titles include <strong>Erika</strong> and <strong>The Labyrinth</strong>, known for immersive environments and chilling atmospheres.</p>
       </div>
     </div>
   </section>
 
-  <section class="section" id="portfolio">
+  <section class="section fade-in" id="portfolio">
     <h2>Games</h2>
     <div class="cards">
-      <div class="card">
+      <div class="card fade-in">
         <img src="erika.jpg" alt="Erika Screenshot" />
         <h3>Erika</h3>
         <p>A psychological horror game featuring custom animations, AI, and scripted jumpscares.</p>
       </div>
-      <div class="card">
+      <div class="card fade-in">
         <video src="labyrinth.mp4" controls muted></video>
         <h3>The Labyrinth</h3>
         <p>A maze survival horror experience with puzzles and multiplayer support.</p>
@@ -195,7 +224,7 @@
     </div>
   </section>
 
-  <section class="section" id="commissions">
+  <section class="section fade-in" id="commissions">
     <h2>Commissions</h2>
     <div class="commission-wrapper">
       <img src="commissions.jpg" alt="Commission Sample">
@@ -205,44 +234,21 @@
     </div>
   </section>
 
-  <section class="section" id="assets">
+  <section class="section fade-in" id="assets">
     <h2>Assets for Sale</h2>
     <p style="margin-bottom: 1rem; font-weight: bold;">To purchase, please join our Discord server: <a href="https://discord.gg/YOUR_INVITE_LINK" target="_blank"><img src="discord-logo.png" alt="Discord Logo" style="width: 20px; vertical-align: middle;"> Join Discord</a></p>
     <div class="cards">
-      <div class="card">
+      <!-- Exemple d'un seul asset -->
+      <div class="card fade-in">
         <video src="asset1.mp4" controls muted></video>
         <h3>Advanced Combat System</h3>
         <p>Price: $25 — <a href="https://youtube.com/video1" target="_blank">Watch Demo</a></p>
       </div>
-      <div class="card">
-        <video src="asset2.mp4" controls muted></video>
-        <h3>Inventory UI</h3>
-        <p>Price: $10 — <a href="https://youtube.com/video2" target="_blank">Watch Demo</a></p>
-      </div>
-      <div class="card">
-        <video src="asset3.mp4" controls muted></video>
-        <h3>Dialogue System</h3>
-        <p>Price: $12 — <a href="https://youtube.com/video3" target="_blank">Watch Demo</a></p>
-      </div>
-      <div class="card">
-        <video src="asset4.mp4" controls muted></video>
-        <h3>Enemy AI Pack</h3>
-        <p>Price: $18 — <a href="https://youtube.com/video4" target="_blank">Watch Demo</a></p>
-      </div>
-      <div class="card">
-        <video src="asset5.mp4" controls muted></video>
-        <h3>Horror Ambience Pack</h3>
-        <p>Price: $8 — <a href="https://youtube.com/video5" target="_blank">Watch Demo</a></p>
-      </div>
-      <div class="card">
-        <video src="asset6.mp4" controls muted></video>
-        <h3>Camera System</h3>
-        <p>Price: $14 — <a href="https://youtube.com/video6" target="_blank">Watch Demo</a></p>
-      </div>
+      <!-- Ajoute les autres à ta guise -->
     </div>
   </section>
 
-  <section class="section" id="contact">
+  <section class="section fade-in" id="contact">
     <h2>Contact & Socials</h2>
     <div class="socials">
       <a href="https://discord.gg/YOUR_INVITE_LINK" target="_blank">
@@ -254,15 +260,25 @@
     </div>
   </section>
 
-  <footer>
+  <footer class="fade-in">
     &copy; 2025 PG Game Studio. All rights reserved.
   </footer>
 
   <script>
-    function scrollToSection(id) {
-      const el = document.getElementById(id);
-      if (el) el.scrollIntoView({ behavior: 'smooth' });
-    }
+    window.addEventListener('load', () => {
+      document.body.classList.add('loaded');
+    });
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+          observer.unobserve(entry.target); // ne déclenche qu'une fois
+        }
+      });
+    });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
   </script>
 </body>
 </html>
