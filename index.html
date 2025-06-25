@@ -92,6 +92,20 @@
       padding-left: 1rem;
     }
 
+    .centered-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  font-size: 1.8rem; /* augmente si tu veux encore plus grand */
+  line-height: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+
     .cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -277,11 +291,11 @@
     <div class="commission-wrapper">
       <img src="PgLogo.png" alt="Commission Sample">
       <div>
-       <p style="text-align: center;">
-  We offer scripting, building, asset creation,<br>
-  and full game development services on Roblox.<br>
-  Contact us on <strong>Discord</strong> for availability and detailed quotes.
-</p>
+       <div class="centered-text">
+  <p>We offer scripting, building, asset creation,</p>
+  <p>and full game development services on Roblox.</p>
+  <p>Contact us on Discord for availability and detailed quotes.</p>
+</div>
       </div>
     </div>
   </section>
