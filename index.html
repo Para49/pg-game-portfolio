@@ -92,26 +92,40 @@
     }
 
     .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-    }
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem; /* espace plus large entre les cartes */
+  max-width: 1200px; /* largeur max pour garder tout centré */
+  margin: 0 auto; /* centrer la grille horizontalement */
+}
 
-    .card {
-      background: #f1f1f1;
-      border: 1px solid #ccc;
-      border-radius: 15px;
-      padding: 1rem;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      cursor: pointer;
-    }
+.card {
+  background: #f1f1f1;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  padding: 1.5rem;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+  /* agrandir un peu la carte */
+  min-width: 350px; 
+  max-width: 380px;
+}
 
-    .card:hover {
-      transform: scale(1.02);
-      box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
-    }
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 15px rgba(0,0,0,0.15);
+}
 
-    .card img, .card video {
+.card video {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 0.75rem;
+  height: 220px; /* taille fixe pour les vidéos */
+  object-fit: cover; /* bien remplir la vidéo dans le cadre */
+  transition: transform 0.3s ease;
+}
+    .card img {
       width: 100%;
       border-radius: 10px;
       margin-bottom: 0.75rem;
