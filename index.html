@@ -189,6 +189,29 @@
       border-radius: 10px;
     }
 
+    <div id="lightbox" style="
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.8);
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+">
+  <img id="lightbox-img" src="" alt="Full view" style="max-width: 90%; max-height: 90%; border-radius: 10px;">
+  <span id="lightbox-close" style="
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+  ">&times;</span>
+</div>
+    
     footer {
       text-align: center;
       margin-top: 4rem;
@@ -355,6 +378,25 @@
     });
 
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    // Lightbox logic
+document.querySelectorAll('.card img').forEach(img => {
+  img.addEventListener('click', () => {
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    lightboxImg.src = img.src;
+    lightbox.style.display = 'flex';
+  });
+});
+
+document.getElementById('lightbox-close').addEventListener('click', () => {
+  document.getElementById('lightbox').style.display = 'none';
+});
+
+document.getElementById('lightbox').addEventListener('click', (e) => {
+  if (e.target.id === 'lightbox') {
+    e.currentTarget.style.display = 'none';
+  }
+});
   </script>
 </body>
 </html>
